@@ -17,7 +17,7 @@ jobs:
           repository: ${{github.repository}}.wiki
       - name: check
         run: |
-          page="Макет и сценарий использования.md"
+          page="Макет-и-сценарий-использования.md"
           mockup_header="Макет UI"
           uc_header="Сценарий использования"
          
