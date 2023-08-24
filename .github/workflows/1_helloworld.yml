@@ -13,16 +13,16 @@ jobs:
       - uses: actions/checkout@v2
         name: Check out current commit
     
-      - name: Url
+      - name: check
         run: |
           dir="./hello_world/"
           if [ -d "${dir}" ]; then 
             if [ "$(ls -A ${dir})" ]; then
               echo "Предварительная проверка пройдена - каталог ${dir} создан и не пуст" >> $GITHUB_OUTPUT
- 	    else
+            else
               echo "Предварительная проверка не пройдена - каталог ${dir} пуст" >> $GITHUB_OUTPUT
               exit 1
-	    fi
+            fi
 
           else 
             echo "Предварительная проверка не пройдена - каталог не найден ${dir}" >> $GITHUB_OUTPUT
