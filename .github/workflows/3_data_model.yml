@@ -17,7 +17,7 @@ jobs:
           repository: ${{github.repository}}.wiki
       - name: check
         run: |
-          page="Модель-данных"
+          page="Модель-данных.md"
           nosql_model="Нереляционная модель"
           sql_model="Сценарий использования"
           comparison="Сравнение моделей"
