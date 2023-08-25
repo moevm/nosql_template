@@ -21,7 +21,7 @@ jobs:
             exit 1
           fi
 
-          if ! [[ -f "./report.pdf"]] ; then 
+          if ! [[ -f "./report.pdf" ]] ; then 
             echo "::error::Предварительная проверка не пройдена - не найдена pdf версия записки"
             exit 1
           fi
