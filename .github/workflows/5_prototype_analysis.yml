@@ -26,20 +26,22 @@ jobs:
 
       - name: Check containers are alive
         run: |
-          docker-compose ps --filter status=exited
-          exited_count=`docker-compose ps --filter status=exited |  tail -n +2 | wc -l`
+          echo "::notice:: docker ps --filter status=exited"
+          docker ps --filter status=exited
+          exited_count=`docker ps --filter status=exited |  tail -n +2 | wc -l`
 
-          docker-compose ps --filter status=dead
-          dead_count=`docker-compose ps --filter status=dead |  tail -n +2 | wc -l`
+          
+          docker ps --filter status=dead
+          dead_count=`docker ps --filter status=dead |  tail -n +2 | wc -l`
 
-          docker-compose ps --filter status=restarting
-          restarting_count=`docker-compose ps --filter status=restarting |  tail -n +2 | wc -l`
+          docker ps --filter status=restarting
+          restarting_count=`docker ps --filter status=restarting |  tail -n +2 | wc -l`
 
-          docker-compose ps --filter status=paused
-          paused_count=`docker-compose ps --filter status=paused |  tail -n +2 | wc -l`
+          docker ps --filter status=paused
+          paused_count=`docker ps --filter status=paused |  tail -n +2 | wc -l`
 
-          docker-compose ps --filter status=created
-          created_count=`docker-compose ps --filter status=created |  tail -n +2 | wc -l`
+          docker ps --filter status=created
+          created_count=`docker ps --filter status=created |  tail -n +2 | wc -l`
           
           if [[ "${exited_count}" != "0" ]] || [[ "${restarting_count}" != "0" ]] || [[ "${paused_count}" != "0" ]] || [[ "${created_count}" != "0" ]] || [[ "${created_count}" != "0" ]]; then
              echo "::error::Часть контейнеров не находится в состоянии running (завершили или не начали свою работу корректно) "
