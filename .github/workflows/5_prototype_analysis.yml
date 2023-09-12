@@ -30,16 +30,19 @@ jobs:
           docker ps --filter status=exited
           exited_count=`docker ps --filter status=exited |  tail -n +2 | wc -l`
 
-          
+          echo "::notice:: docker ps --filter status=dead" 
           docker ps --filter status=dead
           dead_count=`docker ps --filter status=dead |  tail -n +2 | wc -l`
 
+          echo "::notice:: docker ps --filter status=restarting" 
           docker ps --filter status=restarting
           restarting_count=`docker ps --filter status=restarting |  tail -n +2 | wc -l`
 
+          echo "::notice:: docker ps --filter status=paused" 
           docker ps --filter status=paused
           paused_count=`docker ps --filter status=paused |  tail -n +2 | wc -l`
 
+          echo "::notice:: docker ps --filter status=created" 
           docker ps --filter status=created
           created_count=`docker ps --filter status=created |  tail -n +2 | wc -l`
           
