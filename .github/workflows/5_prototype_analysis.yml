@@ -7,7 +7,7 @@ on:
 
 jobs:
   check_hello_world_dir_not_empty:
-    name: "Проверка наличия тега 0.5"
+    name: "Проверка наличия тега 0.8 и работоспособности docker-compose"
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -50,7 +50,7 @@ jobs:
 
       - name: check_tag
         run: |
-          TAG="0.5"
+          TAG="0.8"
           if [ $(git tag -l "${TAG}") ]; then
             echo "::notice::Тег ${TAG} найден"
           else
